@@ -1,0 +1,37 @@
+{
+  "name": "ai-weatherwise",
+  "version": "1.0.0",
+  "description": "AI WeatherWise - intelligent weather forecasts and AI insights (Node.js + Express + MongoDB + Gemini)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node utils/seedAdmin.js",
+    "test": "node tests/smoke.test.js",
+    "preview": "node tests/preview.js"
+  },
+  "keywords": [
+    "weather",
+    "ai",
+    "gemini",
+    "express",
+    "mongodb",
+    "rest-api"
+  ],
+  "author": "Hasna",
+  "license": "MIT",
+  "dependencies": {
+    "@google/genai": "^1.30.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.20.1",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0",
+    "nodemon": "^3.1.10"
+  }
+}

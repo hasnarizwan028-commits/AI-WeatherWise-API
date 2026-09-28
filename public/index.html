@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI WeatherWise | Login &amp; Register</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌤️</text></svg>" />
+</head>
+<body>
+
+  <div class="container auth-wrap">
+    <div class="center" style="margin-bottom:18px">
+      <div class="brand" style="justify-content:center">
+        <span class="logo">🌤️</span> AI WeatherWise
+      </div>
+      <p class="muted">Intelligent forecasts, AI summaries &amp; personalised advice</p>
+    </div>
+
+    <div class="card">
+      <div class="auth-tabs">
+        <button id="tabLogin" class="active">Login</button>
+        <button id="tabRegister">Register</button>
+      </div>
+
+      <!-- LOGIN -->
+      <form id="loginForm">
+        <label for="loginEmail">Email address</label>
+        <input id="loginEmail" type="email" placeholder="you@example.com" autocomplete="email" required />
+
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" type="password" placeholder="••••••" autocomplete="current-password" required />
+
+        <button class="btn block" type="submit" id="loginBtn">Sign in</button>
+        <div class="msg" id="loginMsg"></div>
+      </form>
+
+      <!-- REGISTER -->
+      <form id="registerForm" class="hidden">
+        <label for="regName">Full name</label>
+        <input id="regName" type="text" placeholder="Hasna" autocomplete="name" required />
+
+        <label for="regEmail">Email address</label>
+        <input id="regEmail" type="email" placeholder="you@example.com" autocomplete="email" required />
+
+        <label for="regPassword">Password (min 6 characters)</label>
+        <input id="regPassword" type="password" placeholder="••••••" autocomplete="new-password" required />
+
+        <button class="btn block" type="submit" id="registerBtn">Create account</button>
+        <div class="msg" id="registerMsg"></div>
+      </form>
+    </div>
+
+    <div class="card mt">
+      <h3>Quick public check (no login needed)</h3>
+      <p class="muted">Test the live weather API before creating an account.</p>
+      <div class="row" style="margin-top:10px">
+        <input id="quickCity" type="text" placeholder="Chennai" style="flex:1" />
+        <button class="btn ghost" id="quickBtn">Check weather</button>
+      </div>
+      <div id="quickOut" class="mt"></div>
+    </div>
+
+    <p class="center muted" style="margin-top:18px">
+      API status: <span id="healthBadge" class="badge">checking…</span>
+    </p>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

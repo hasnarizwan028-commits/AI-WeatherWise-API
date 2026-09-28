@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | AI WeatherWise</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container inner">
+      <div class="brand"><span class="logo">🌤️</span> AI WeatherWise</div>
+      <nav class="nav-links" id="navLinks"></nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ============ HERO / CURRENT WEATHER ============ -->
+    <section class="hero">
+      <h1 id="greeting">Welcome back</h1>
+      <p class="muted" id="greetSub">Here is the live weather and AI advice for your saved cities.</p>
+    </section>
+
+    <!-- ============ AI INSIGHT ============ -->
+    <section class="card ai-panel" id="aiPanel">
+      <div class="spread">
+        <h3>🤖 AI Insight <span class="badge" id="aiSource">…</span></h3>
+        <div class="row">
+          <button class="btn sm ghost" data-ai="summary">Summary</button>
+          <button class="btn sm ghost" data-ai="recommendation">What to wear / do</button>
+          <button class="btn sm ghost" data-ai="activity">Activity ideas</button>
+        </div>
+      </div>
+      <div class="ai-text" id="aiText">
+        <div class="skeleton"></div><div class="skeleton" style="width:80%"></div>
+      </div>
+      <div class="chips" id="aiChips"></div>
+    </section>
+
+    <!-- ============ CURRENT WEATHER CARD ============ -->
+    <section class="card mt" id="currentCard" style="display:none">
+      <div class="weather-hero">
+        <div>
+          <div class="spread" style="justify-content:flex-start">
+            <h2 id="cityName">—</h2>
+            <span class="badge" id="providerBadge">—</span>
+          </div>
+          <div class="temp" id="temp">—</div>
+          <div class="muted" id="condition">—</div>
+        </div>
+        <div class="icon" id="icon">🌡️</div>
+      </div>
+      <div class="grid grid-4 mt" id="stats"></div>
+      <h3 class="mt" style="margin-bottom:8px">5 day forecast</h3>
+      <div class="forecast-row" id="forecast"></div>
+    </section>
+
+    <!-- ============ MY FAVOURITE CITIES ============ -->
+    <section class="mt" id="favourites">
+      <div class="spread">
+        <h2>⭐ My favourite cities</h2>
+        <div class="row">
+          <input id="newCity" type="text" placeholder="Add a city (e.g. Bengaluru)" style="width:230px" />
+          <button class="btn sm" id="addCityBtn">+ Add</button>
+        </div>
+      </div>
+      <div class="list mt" id="cityList"></div>
+      <div class="msg" id="cityMsg"></div>
+    </section>
+
+    <!-- ============ EXPLORE ============ -->
+    <section class="mt" id="explore">
+      <h2>🔍 Explore any city in the world</h2>
+      <p class="muted">Free live data from Open-Meteo — no API key required.</p>
+      <div class="row mt">
+        <input id="exploreCity" type="text" placeholder="Search a city…" style="flex:1;min-width:200px" />
+        <button class="btn" id="exploreBtn">Get weather</button>
+      </div>
+      <div id="exploreOut" class="mt"></div>
+    </section>
+
+    <!-- ============ PROFILE ============ -->
+    <section class="card mt" id="profile">
+      <h2>👤 My account</h2>
+      <div class="grid grid-2 mt">
+        <div>
+          <label>Full name</label>
+          <input id="pName" type="text" />
+          <label>Email</label>
+          <input id="pEmail" type="email" />
+          <button class="btn sm mt" id="saveProfile">Save profile</button>
+          <div class="msg" id="pMsg"></div>
+        </div>
+        <div>
+          <label>Current password</label>
+          <input id="curPass" type="password" />
+          <label>New password</label>
+          <input id="newPass" type="password" />
+          <button class="btn sm ghost mt" id="savePass">Change password</button>
+          <div class="msg" id="passMsg"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container spread">
+      <div>AI WeatherWise · Built by <strong>Hasna</strong> · 3rd Year BCA, Mohamed Sathak College of Arts and Science</div>
+      <div>Weather: Open-Meteo (free) · AI: Google Gemini</div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

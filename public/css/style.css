@@ -1,0 +1,185 @@
+/* ==========================================================================
+   AI WeatherWise - Frontend Stylesheet
+   Mohamed Sathak College of Arts and Science | BCA 3rd Year
+   ========================================================================== */
+
+:root {
+  --bg: #0b1220;
+  --bg-2: #111c30;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-solid: #16223a;
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #eaf1ff;
+  --muted: #93a4c4;
+  --brand: #4f8cff;
+  --brand-2: #22d3ee;
+  --ok: #34d399;
+  --warn: #fbbf24;
+  --err: #f87171;
+  --radius: 16px;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 15% -10%, #1b3358 0%, transparent 60%),
+              radial-gradient(900px 500px at 100% 0%, #123b4d 0%, transparent 55%),
+              var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.55;
+}
+
+a { color: var(--brand-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------------------------- Layout ---------------------------- */
+.container { max-width: 1150px; margin: 0 auto; padding: 0 18px; }
+.grid { display: grid; gap: 18px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.spread { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hidden { display: none !important; }
+.mt { margin-top: 18px; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.center { text-align: center; }
+
+/* ---------------------------- Navbar ---------------------------- */
+header.navbar {
+  border-bottom: 1px solid var(--border);
+  background: rgba(11, 18, 32, 0.75);
+  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 50;
+}
+.navbar .inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.3px; }
+.brand .logo {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  display: grid; place-items: center; font-size: 1.1rem;
+}
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-links button, .nav-links a {
+  background: transparent; border: 1px solid transparent; color: var(--text);
+  padding: 8px 12px; border-radius: 10px; cursor: pointer; font-size: 0.92rem; font-family: inherit;
+}
+.nav-links button:hover, .nav-links a:hover { background: var(--card); text-decoration: none; }
+.nav-links button.active { background: rgba(79, 140, 255, 0.18); border-color: rgba(79, 140, 255, 0.45); }
+
+/* ---------------------------- Cards ---------------------------- */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+}
+.card h2 { font-size: 1.05rem; margin-bottom: 6px; }
+.card h3 { font-size: 0.95rem; margin-bottom: 4px; }
+
+.hero { text-align: center; padding: 46px 0 26px; }
+.hero h1 { font-size: clamp(1.8rem, 4.4vw, 2.7rem); line-height: 1.2; }
+.hero .tag { color: var(--brand-2); font-weight: 600; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem;
+  padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06); color: var(--muted);
+}
+.badge.ok { color: var(--ok); border-color: rgba(52, 211, 153, 0.4); }
+.badge.warn { color: var(--warn); border-color: rgba(251, 191, 36, 0.4); }
+.badge.err { color: var(--err); border-color: rgba(248, 113, 113, 0.4); }
+
+/* ---------------------------- Auth ---------------------------- */
+.auth-wrap { max-width: 430px; margin: 40px auto; }
+.auth-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+.auth-tabs button {
+  flex: 1; padding: 10px; border-radius: 10px; cursor: pointer; font-family: inherit;
+  background: var(--card); border: 1px solid var(--border); color: var(--muted);
+}
+.auth-tabs button.active { background: rgba(79, 140, 255, 0.18); border-color: var(--brand); color: var(--text); }
+
+label { display: block; font-size: 0.85rem; color: var(--muted); margin: 12px 0 6px; }
+input, select, textarea {
+  width: 100%; padding: 11px 12px; border-radius: 10px; font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
+  color: var(--text); font-family: inherit; outline: none;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.15); }
+
+/* ---------------------------- Buttons ---------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 11px 18px; border-radius: 10px; border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #06121f; font-weight: 700; font-size: 0.95rem; font-family: inherit;
+  cursor: pointer; transition: transform 0.12s ease, filter 0.12s ease;
+}
+.btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+.btn.block { width: 100%; margin-top: 18px; }
+.btn.ghost { background: transparent; border-color: var(--border); color: var(--text); }
+.btn.danger { background: linear-gradient(135deg, #ef4444, #f97316); color: #fff; }
+.btn.sm { padding: 7px 12px; font-size: 0.85rem; }
+
+/* ---------------------------- Messages ---------------------------- */
+.msg { padding: 11px 14px; border-radius: 10px; font-size: 0.9rem; margin-top: 14px; display: none; }
+.msg.show { display: block; }
+.msg.ok { background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.4); color: #a7f3d0; }
+.msg.err { background: rgba(248, 113, 113, 0.12); border: 1px solid rgba(248, 113, 113, 0.4); color: #fecaca; }
+.msg.info { background: rgba(79, 140, 255, 0.12); border: 1px solid rgba(79, 140, 255, 0.4); color: #bfdbfe; }
+
+/* ---------------------------- Weather ---------------------------- */
+.weather-hero { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center; }
+.temp { font-size: 3.2rem; font-weight: 800; line-height: 1; letter-spacing: -1px; }
+.icon { font-size: 3rem; }
+.stat { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+.stat .k { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+.stat .v { font-size: 1.05rem; font-weight: 700; }
+.forecast-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.day { text-align: center; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border); border-radius: 12px; padding: 12px 8px; }
+.day .d { font-size: 0.75rem; color: var(--muted); }
+.day .t { font-weight: 700; margin-top: 4px; }
+.bar { height: 6px; border-radius: 99px; background: rgba(255, 255, 255, 0.1); overflow: hidden; margin-top: 6px; }
+.bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--brand-2), var(--brand)); }
+
+/* ---------------------------- Lists ---------------------------- */
+.list { display: flex; flex-direction: column; gap: 10px; }
+.item {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 14px; flex-wrap: wrap;
+}
+.item .title { font-weight: 600; }
+.table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.table th, .table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.table th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.table tr:hover td { background: rgba(255, 255, 255, 0.03); }
+
+/* ---------------------------- AI panel ---------------------------- */
+.ai-panel { border-left: 3px solid var(--brand-2); }
+.ai-panel h3 { display: flex; align-items: center; gap: 8px; }
+.ai-text { font-size: 0.96rem; margin-top: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.chip {
+  padding: 7px 12px; border-radius: 999px; font-size: 0.84rem;
+  background: rgba(34, 211, 238, 0.12); border: 1px solid rgba(34, 211, 238, 0.35);
+}
+.skeleton {
+  height: 14px; border-radius: 6px; margin: 8px 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+  background-size: 200% 100%; animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.spinner {
+  width: 16px; height: 16px; border: 2px solid rgba(0, 0, 0, 0.25);
+  border-top-color: #06121f; border-radius: 50%; animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+footer { border-top: 1px solid var(--border); margin-top: 46px; padding: 22px 0; color: var(--muted); font-size: 0.85rem; }
+
+@media (max-width: 640px) {
+  .navbar .inner { flex-direction: column; gap: 10px; }
+  .temp { font-size: 2.5rem; }
+}
